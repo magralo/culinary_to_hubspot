@@ -81,9 +81,12 @@ def data_from_city(city, links = links, city_state = city_state ):
         time.sleep(2)
 
         for _ in range(5):
-            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-            load_more.click()
-            time.sleep(2)
+            try:
+                load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
+                load_more.click()
+                time.sleep(2)
+            except:
+                logging.warning('buttom not finded')
 
 
         html_source = driver.page_source

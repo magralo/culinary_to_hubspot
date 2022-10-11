@@ -80,12 +80,15 @@ def data_from_city(city, links = links, city_state = city_state ):
 
         time.sleep(2)
 
-        
+        driver.find_element(By.TAG_NAME, "body").screenshot('web_screenshot.png')
 
         for _ in range(5):
-            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-            load_more.click()
-            time.sleep(2)
+            try:
+                load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
+                load_more.click()
+                time.sleep(2)
+            except:
+                logging.warning('buttom not finded')
 
 
 
@@ -189,5 +192,7 @@ def update_hs(n=5):
 
 
 
-data_from_city('chicago')
-update_hs()
+data_from_city('dallas')
+#update_hs()                                                                                                               
+        
+       
