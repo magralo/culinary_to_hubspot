@@ -14,6 +14,9 @@ steps:
   - 'us-central1'
   - '--platform'
   - 'managed'
+  - '--memory'
+  - '1Gi'
+  - '--timeout=900'
   - '--set-env-vars'
   - 'PROJECT=$PROJECT_ID,hs_token=TOKEN'
 
