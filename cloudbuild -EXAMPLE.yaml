@@ -18,5 +18,5 @@ steps:
   - 'PROJECT=$PROJECT_ID,hs_token=TOKEN'
 
 substitutions:
-    _NAME_IMG: 'craiglist-data-image'
-    _NAME_SRV: 'craiglist-data-service'
+    _NAME_IMG: 'culinary-agents-data-image'
+    _NAME_SRV: 'culinary-agents-data-service'

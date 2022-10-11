@@ -69,7 +69,7 @@ def data_from_city(city, links = links, city_state = city_state ):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("window-size=1024,768")
+        chrome_options.add_argument("window-size=1024,12000")
         chrome_options.add_argument("--no-sandbox")
 
         # Initialize a new browser
@@ -78,21 +78,12 @@ def data_from_city(city, links = links, city_state = city_state ):
 
         driver.get(link)
 
-        time.sleep(5)
+        time.sleep(2)
 
-        if False:
+        for _ in range(5):
             load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
             load_more.click()
-            time.sleep(5)
-
-
-            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-            load_more.click()
-            time.sleep(5)
-
-            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-            load_more.click()
-            time.sleep(5)
+            time.sleep(2)
 
 
         html_source = driver.page_source
