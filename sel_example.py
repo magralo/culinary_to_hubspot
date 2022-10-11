@@ -66,43 +66,31 @@ def data_from_city(city, links = links, city_state = city_state ):
         link = links[city]
         PATH = '/Users/mateograciano/Documents/chromedriver'
 
-        options = webdriver.ChromeOptions() 
-        options.add_argument('--disable-blink-features=AutomationControlled')
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("window-size=1024,12000")
+        chrome_options.add_argument("--no-sandbox")
 
-        options.add_argument("disable-infobars")
+        driver = webdriver.Chrome(PATH,chrome_options=chrome_options)
 
-
-        driver = webdriver.Chrome(PATH)
-
-
-        driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
-
-
-        options.add_experimental_option("excludeSwitches", ["enable-automation"])
-
-
-        options.add_experimental_option('useAutomationExtension', False)
 
 
         driver.get(link)
 
         time.sleep(2)
 
-        load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-        load_more.click()
-        time.sleep(2)
+        
 
+        for _ in range(5):
+            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
+            load_more.click()
+            time.sleep(2)
 
-        load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-        load_more.click()
-        time.sleep(2)
-
-        load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-        load_more.click()
-        time.sleep(2)
 
 
         html_source = driver.page_source
+
 
         soup = BeautifulSoup(html_source, 'html.parser')
 
