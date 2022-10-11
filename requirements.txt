@@ -1,0 +1,10 @@
+google-cloud-bigquery==3.3.1
+db-dtypes==1.0.3
+pandas==1.4.3
+fastapi==0.78.0
+gunicorn     == 20.1.0
+uvicorn      == 0.18.2
+beautifulsoup4 == 4.11.1
+hubspot-api-client==6.0.0
+selenium==4.4.3
+chromedriver-binary == 105.0.5195.52.0

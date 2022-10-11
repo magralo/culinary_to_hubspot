@@ -1,0 +1,22 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: [ 'builds','submit', '--tag', 'gcr.io/$PROJECT_ID/${_NAME_IMG}' ]
+
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - '${_NAME_SRV}'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/${_NAME_IMG}'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--set-env-vars'
+  - 'PROJECT=$PROJECT_ID,hs_token=TOKEN'
+
+substitutions:
+    _NAME_IMG: 'craiglist-data-image'
+    _NAME_SRV: 'craiglist-data-service'
