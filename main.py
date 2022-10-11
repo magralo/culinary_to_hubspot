@@ -78,20 +78,21 @@ def data_from_city(city, links = links, city_state = city_state ):
 
         driver.get(link)
 
-        time.sleep(2)
+        time.sleep(5)
 
-        load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-        load_more.click()
-        time.sleep(2)
+        if False:
+            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
+            load_more.click()
+            time.sleep(5)
 
 
-        load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-        load_more.click()
-        time.sleep(2)
+            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
+            load_more.click()
+            time.sleep(5)
 
-        load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
-        load_more.click()
-        time.sleep(2)
+            load_more = driver.find_element( By.XPATH,'''//*[@id="load_more_btn"]''')
+            load_more.click()
+            time.sleep(5)
 
 
         html_source = driver.page_source
